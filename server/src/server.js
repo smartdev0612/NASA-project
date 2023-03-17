@@ -1,5 +1,6 @@
 const http = require('http')
 const mongoose = require('mongoose')
+require('dotenv').config()
 
 const app = require('./app')
 
@@ -7,7 +8,7 @@ const { loadPlanetsData } = require('./models/planets.model')
 
 const PORT = process.env.PORT || 8000
 
-const MONGO_URL = `mongodb+srv://daniel:OmruuYsrb3Zu50ko@nasacluster.4jetn0y.mongodb.net/nasa?retryWrites=true&w=majority`
+const MONGO_URL = `mongodb+srv://daniel:${process.env.MONGODB_PWD}@nasacluster.4jetn0y.mongodb.net/nasa?retryWrites=true&w=majority`
 
 const server = http.createServer(app)
 
